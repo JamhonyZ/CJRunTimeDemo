@@ -18,8 +18,9 @@ static const char *titleRectKey;
 static const char *imageRectKey;
 
 #pragma mark ----------UIControl-------------
-@interface UIControl ()
 
+@interface UIControl ()
+//是否忽略
 @property (nonatomic, assign)BOOL cj_ignoreEvent;
 
 @end
@@ -51,6 +52,8 @@ static const char *imageRectKey;
  id value                      :被关联者
  objc_AssociationPolicy policy : 关联时采用的协议，有assign，retain，copy等协议，一般使用OBJC_ASSOCIATION_RETAIN_NONATOMIC
  */
+
+//间隔时间
 - (void)setCj_delayTime:(NSTimeInterval)cj_delayTime {
     objc_setAssociatedObject(self, @selector(cj_delayTime), @(cj_delayTime), OBJC_ASSOCIATION_ASSIGN);
 }

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 /**
- *  延迟功能
+ *  间隔功能
  *  block封装
  *  图文位置
  *  热响应区域
@@ -18,9 +18,8 @@ typedef void(^cj_click_block)(UIButton *btn);
 
 @interface UIControl (cjBtn)
 
-
 /**
- * 延迟功能
+ * 间隔功能
  */
 @property(nonatomic,assign)NSTimeInterval cj_delayTime;
 
