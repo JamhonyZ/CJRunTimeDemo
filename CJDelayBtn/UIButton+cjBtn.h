@@ -16,14 +16,18 @@
  */
 typedef void(^cj_click_block)(UIButton *btn);
 
+@interface UIControl (cjBtn)
 
-@interface UIButton (cjBtn)
 
 /**
  * 延迟功能
  */
 @property(nonatomic,assign)NSTimeInterval cj_delayTime;
 
+@end
+
+
+@interface UIButton (cjBtn)
 
 /**
  * block封装

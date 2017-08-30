@@ -17,26 +17,20 @@ static const char *leftNameKey;
 static const char *titleRectKey;
 static const char *imageRectKey;
 
-#pragma mark -------------UIButton-------------------
-
-@interface UIButton ()
+#pragma mark ----------UIControl-------------
+@interface UIControl ()
 
 @property (nonatomic, assign)BOOL cj_ignoreEvent;
 
 @end
 
-@implementation UIButton (cjBtn)
+@implementation UIControl (cjBtn)
 
-#pragma mark -- Load
-+(void)load {
-
++ (void)load {
     //延迟
     Method sys_method = class_getInstanceMethod(self, @selector(sendAction:to:forEvent:));
     Method add_method = class_getInstanceMethod(self, @selector(cj_sendAction:to:forEvent:));
     method_exchangeImplementations(sys_method, add_method);
-    //图文
-    MethodSwizzle(self,@selector(titleRectForContentRect:),@selector(override_titleRectForContentRect:));
-    MethodSwizzle(self,@selector(imageRectForContentRect:),@selector(override_imageRectForContentRect:));
 }
 #pragma mark -- 延迟
 - (void)cj_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
@@ -71,6 +65,23 @@ static const char *imageRectKey;
 - (BOOL)cj_ignoreEvent{
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
+@end
+
+
+
+
+#pragma mark -------------UIButton-------------------
+
+
+@implementation UIButton (cjBtn)
+
+#pragma mark -- Load
++ (void)load {
+    //图文
+    MethodSwizzle(self,@selector(titleRectForContentRect:),@selector(override_titleRectForContentRect:));
+    MethodSwizzle(self,@selector(imageRectForContentRect:),@selector(override_imageRectForContentRect:));
+}
+
 
 #pragma mark -- Block封装
 - (void)cj_clickControl:(cj_click_block)block {
