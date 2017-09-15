@@ -226,6 +226,7 @@
 				TargetAttributes = {
 					CD2128481F4D6CEC00CC2BBC = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = ZUUQP4NY7G;
 						ProvisioningStyle = Automatic;
 					};
 					CD2128611F4D6CED00CC2BBC = {
@@ -446,9 +447,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZUUQP4NY7G;
 				INFOPLIST_FILE = CJRunTimeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rt.www.CJRunTimeDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xjcard.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -457,9 +459,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZUUQP4NY7G;
 				INFOPLIST_FILE = CJRunTimeDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.rt.www.CJRunTimeDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xjcard.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

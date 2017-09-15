@@ -16,6 +16,8 @@
  */
 typedef void(^cj_click_block)(UIButton *btn);
 
+#pragma mark -- UIControl
+
 @interface UIControl (cjBtn)
 
 /**
@@ -25,6 +27,7 @@ typedef void(^cj_click_block)(UIButton *btn);
 
 @end
 
+#pragma mark -- UIButton
 
 @interface UIButton (cjBtn)
 
@@ -32,8 +35,6 @@ typedef void(^cj_click_block)(UIButton *btn);
  * block封装
  */
 - (void)cj_clickControl:(cj_click_block)block;
-
-- (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay;
 
 
 /**

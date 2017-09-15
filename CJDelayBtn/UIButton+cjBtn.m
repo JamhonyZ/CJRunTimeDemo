@@ -88,21 +88,14 @@ static const char *imageRectKey;
 
 #pragma mark -- Block封装
 - (void)cj_clickControl:(cj_click_block)block {
-    [self cj_clickControl:block delay:0];
-}
-- (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay {
     
     [self addTarget:self action:@selector(cj_clickBtn:) forControlEvents:UIControlEventTouchUpInside];
-    
-    if (delay>0) {
-        self.cj_delayTime = delay;
-    }
     
     //存储block行为
     if (block) {
         objc_setAssociatedObject(self, &buttonCallBackBlockKey, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
-    
+
 }
 
 - (void)cj_clickBtn:(UIButton *)sender {

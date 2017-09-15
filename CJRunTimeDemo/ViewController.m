@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "UIButton+cjBtn.h"
 
+
 @interface ViewController ()
 
 @property (nonatomic, assign)NSInteger clickCount0;
@@ -26,11 +27,11 @@
     [btn setTitle:@"间隔一秒" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.cj_delayTime = 1;
-    btn.frame = CGRectMake(10, 80, 60, 20);
     [btn cj_clickControl:^(UIButton *btn) {
         [self changeAction:btn];
     }];
+    btn.cj_delayTime = 1;
+    btn.frame = CGRectMake(10, 80, 60, 20);
     btn.backgroundColor = [UIColor redColor];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:btn];
@@ -42,7 +43,7 @@
     [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn1 cj_clickControl:^(UIButton *btn) {
         [self changeAction1:btn];
-    } delay:0];
+    }];
     btn1.frame = CGRectMake(CGRectGetMaxX(btn.frame)+50, 80, 60, 20);
     btn1.backgroundColor = [UIColor redColor];
     btn1.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -100,6 +101,8 @@
     [btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [bgView addSubview:btn3];
     
+ 
+   
 }
 
 
