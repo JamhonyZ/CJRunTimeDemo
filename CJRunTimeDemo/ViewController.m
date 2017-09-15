@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "UIButton+cjBtn.h"
-
+#import "UIFont+cjFont.h"
 
 #define kSelfWeak __weak typeof(self) weakSelf = self
 #define kSelfStrong __strong __typeof__(weakSelf) strongSelf = weakSelf
@@ -24,19 +24,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     //间隔
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn addTarget:self action:@selector(changeAction:) forControlEvents:UIControlEventTouchUpInside];
     [btn setTitle:@"间隔一秒" forState:UIControlStateNormal];
+  
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    btn.cj_delayTime = 1;
     kSelfWeak;
     [btn cj_clickControl:^(UIButton *btn) {
         kSelfStrong;
         [strongSelf changeAction:btn];
     }];
-    btn.cj_delayTime = 1;
     btn.frame = CGRectMake(10, 80, 60, 20);
     btn.backgroundColor = [UIColor redColor];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -102,14 +103,16 @@
         }
     }];
     [btn3 setEnlargeEdge:30];
-    btn3.titleLabel.font = [UIFont systemFontOfSize:11];
+    
+    //PingFangSC-Light
+    //小机型 小size
+    UIFont *font = [UIFont cj_fontWithName:@"HelveticaNeue-Medium" uiSize:15 cutSize:5];
+    btn3.titleLabel.font = font;
     btn3.frame = CGRectMake(30, 30, 40, 40);
     btn3.backgroundColor = [UIColor redColor];
     [btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [bgView addSubview:btn3];
-    
- 
-   
+     
 }
 
 

@@ -83,6 +83,7 @@ static const char *imageRectKey;
     //图文
     MethodSwizzle(self,@selector(titleRectForContentRect:),@selector(override_titleRectForContentRect:));
     MethodSwizzle(self,@selector(imageRectForContentRect:),@selector(override_imageRectForContentRect:));
+    
 }
 
 

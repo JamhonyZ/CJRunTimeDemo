@@ -18,6 +18,7 @@
 		CD6ADC481F5541C40028C1F5 /* UIButton+cjBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6ADC471F5541C40028C1F5 /* UIButton+cjBtn.m */; };
 		CD6ADC4E1F5548380028C1F5 /* xj_alert_succeed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6ADC4C1F5548380028C1F5 /* xj_alert_succeed@2x.png */; };
 		CD6ADC4F1F5548380028C1F5 /* xj_alert_succeed@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD6ADC4D1F5548380028C1F5 /* xj_alert_succeed@3x.png */; };
+		CD6FF88D1F6B6E2900B513EC /* UIFont+cjFont.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF88C1F6B6E2900B513EC /* UIFont+cjFont.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		CD6ADC471F5541C40028C1F5 /* UIButton+cjBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+cjBtn.m"; sourceTree = "<group>"; };
 		CD6ADC4C1F5548380028C1F5 /* xj_alert_succeed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xj_alert_succeed@2x.png"; sourceTree = "<group>"; };
 		CD6ADC4D1F5548380028C1F5 /* xj_alert_succeed@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xj_alert_succeed@3x.png"; sourceTree = "<group>"; };
+		CD6FF88B1F6B6E2900B513EC /* UIFont+cjFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+cjFont.h"; sourceTree = "<group>"; };
+		CD6FF88C1F6B6E2900B513EC /* UIFont+cjFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+cjFont.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +158,8 @@
 			children = (
 				CD6ADC461F5541C40028C1F5 /* UIButton+cjBtn.h */,
 				CD6ADC471F5541C40028C1F5 /* UIButton+cjBtn.m */,
+				CD6FF88B1F6B6E2900B513EC /* UIFont+cjFont.h */,
+				CD6FF88C1F6B6E2900B513EC /* UIFont+cjFont.m */,
 			);
 			path = CJDelayBtn;
 			sourceTree = SOURCE_ROOT;
@@ -296,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD6ADC481F5541C40028C1F5 /* UIButton+cjBtn.m in Sources */,
+				CD6FF88D1F6B6E2900B513EC /* UIFont+cjFont.m in Sources */,
 				CD2128541F4D6CEC00CC2BBC /* ViewController.m in Sources */,
 				CD2128511F4D6CEC00CC2BBC /* AppDelegate.m in Sources */,
 				CD21284E1F4D6CEC00CC2BBC /* main.m in Sources */,
@@ -449,6 +455,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZUUQP4NY7G;
 				INFOPLIST_FILE = CJRunTimeDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xjcard.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -461,6 +468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZUUQP4NY7G;
 				INFOPLIST_FILE = CJRunTimeDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xjcard.www;
 				PRODUCT_NAME = "$(TARGET_NAME)";
