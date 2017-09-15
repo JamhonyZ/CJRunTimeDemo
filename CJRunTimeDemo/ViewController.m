@@ -10,6 +10,9 @@
 #import "UIButton+cjBtn.h"
 
 
+#define kSelfWeak __weak typeof(self) weakSelf = self
+#define kSelfStrong __strong __typeof__(weakSelf) strongSelf = weakSelf
+
 @interface ViewController ()
 
 @property (nonatomic, assign)NSInteger clickCount0;
@@ -22,13 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //间隔
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn addTarget:self action:@selector(changeAction:) forControlEvents:UIControlEventTouchUpInside];
     [btn setTitle:@"间隔一秒" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    kSelfWeak;
     [btn cj_clickControl:^(UIButton *btn) {
-        [self changeAction:btn];
+        kSelfStrong;
+        [strongSelf changeAction:btn];
     }];
     btn.cj_delayTime = 1;
     btn.frame = CGRectMake(10, 80, 60, 20);
@@ -37,12 +43,13 @@
     [self.view addSubview:btn];
     
     
-    
+    //block
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn1 setTitle:@"block封装" forState:UIControlStateNormal];
     [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [btn1 cj_clickControl:^(UIButton *btn) {
-        [self changeAction1:btn];
+        kSelfStrong;
+        [strongSelf changeAction1:btn];
     }];
     btn1.frame = CGRectMake(CGRectGetMaxX(btn.frame)+50, 80, 60, 20);
     btn1.backgroundColor = [UIColor redColor];
@@ -51,7 +58,7 @@
     [self.view addSubview:btn1];
     
 
-    
+    //图文
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn2 setTitle:@"图文位置" forState:UIControlStateNormal];
     [btn2 setImage:[UIImage imageNamed:@"xj_alert_succeed"] forState:UIControlStateNormal];
