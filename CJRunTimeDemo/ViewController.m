@@ -32,7 +32,7 @@
   
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    btn.cj_delayTime = 1;
+    btn.cj_delayTime = @(0.9);
     kSelfWeak;
     [btn cj_clickControl:^(UIButton *btn) {
         kSelfStrong;
@@ -51,7 +51,7 @@
     [btn1 cj_clickControl:^(UIButton *btn) {
         kSelfStrong;
         [strongSelf changeAction1:btn];
-    } delay:1];
+    } delay:0.2];
     btn1.frame = CGRectMake(CGRectGetMaxX(btn.frame)+50, 80, 60, 20);
     btn1.backgroundColor = [UIColor redColor];
     btn1.titleLabel.font = [UIFont systemFontOfSize:12];

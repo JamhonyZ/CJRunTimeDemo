@@ -42,13 +42,16 @@ static const char *imageRectKey;
 - (void)cj_sendAction:(SEL)action to:(nullable id)target
              forEvent:(nullable UIEvent *)event {
     
-    if (iOS9Later) {
-        if (self.cj_ignoreEvent) return;
-        if (self.cj_delayTime > 0) {
+
+    if (self.cj_ignoreEvent) return;
+    
+        CGFloat delay = [self.cj_delayTime doubleValue];
+//        NSLog(@"延迟时间：%@,%@",@([self.cj_delayTime doubleValue]),@(delay));
+        if (delay > 0) {
             self.cj_ignoreEvent = YES;
-            [self performSelector:@selector(setCj_ignoreEvent:) withObject:@(NO) afterDelay:self.cj_delayTime];
+            [self performSelector:@selector(setCj_ignoreEvent:) withObject:@(NO) afterDelay:delay];
         }
-    }
+
     [self cj_sendAction:action to:target forEvent:event];
 }
 
@@ -61,11 +64,11 @@ static const char *imageRectKey;
  objc_AssociationPolicy policy : 关联时采用的协议，有assign，retain，copy等协议，一般使用OBJC_ASSOCIATION_RETAIN_NONATOMIC
  */
 //间隔时间
-- (void)setCj_delayTime:(NSTimeInterval)cj_delayTime {
-    objc_setAssociatedObject(self, @selector(cj_delayTime), @(cj_delayTime), OBJC_ASSOCIATION_ASSIGN);
+- (void)setCj_delayTime:(NSString *)cj_delayTime {
+    objc_setAssociatedObject(self, @selector(cj_delayTime), cj_delayTime, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
-- (NSTimeInterval)cj_delayTime {
-    return [objc_getAssociatedObject(self, _cmd) doubleValue];
+- (NSNumber *)cj_delayTime {
+    return objc_getAssociatedObject(self, _cmd);
 }
 //是否忽略
 - (void)setCj_ignoreEvent:(BOOL)cj_ignoreEvent{
@@ -105,8 +108,8 @@ static const char *imageRectKey;
     
     [self addTarget:self action:@selector(cj_clickBtn:) forControlEvents:UIControlEventTouchUpInside];
     
-    if (iOS9Later && delay>0) {
-        self.cj_delayTime = delay;
+    if (delay>0) {
+        self.cj_delayTime =  @(delay);
     }
     
     //存储block行为
