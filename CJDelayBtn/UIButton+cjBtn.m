@@ -9,6 +9,9 @@
 #import "UIButton+cjBtn.h"
 #import <objc/runtime.h>
 
+#define kVersion [[UIDevice currentDevice].systemVersion floatValue]
+#define iOS9Later  ( kVersion > 9.0)
+
 static const char *buttonCallBackBlockKey;
 static const char *topNameKey;
 static const char *rightNameKey;
@@ -36,10 +39,12 @@ static const char *imageRectKey;
 #pragma mark -- 延迟
 - (void)cj_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
     
-    if (self.cj_ignoreEvent) return;
-    if (self.cj_delayTime > 0) {
-        self.cj_ignoreEvent = YES;
-        [self performSelector:@selector(setCj_ignoreEvent:) withObject:@(NO) afterDelay:self.cj_delayTime];
+    if (iOS9Later) {
+        if (self.cj_ignoreEvent) return;
+        if (self.cj_delayTime > 0) {
+            self.cj_ignoreEvent = YES;
+            [self performSelector:@selector(setCj_ignoreEvent:) withObject:@(NO) afterDelay:self.cj_delayTime];
+        }
     }
     [self cj_sendAction:action to:target forEvent:event];
 }
@@ -90,15 +95,22 @@ static const char *imageRectKey;
 #pragma mark -- Block封装
 - (void)cj_clickControl:(cj_click_block)block {
     
+    [self cj_clickControl:block delay:0];
+
+}
+- (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay {
+    
     [self addTarget:self action:@selector(cj_clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if (iOS9Later && delay>0) {
+        self.cj_delayTime = delay;
+    }
     
     //存储block行为
     if (block) {
         objc_setAssociatedObject(self, &buttonCallBackBlockKey, block, OBJC_ASSOCIATION_COPY_NONATOMIC);
     }
-
 }
-
 - (void)cj_clickBtn:(UIButton *)sender {
     //取出
     cj_click_block block = objc_getAssociatedObject(self, &buttonCallBackBlockKey);

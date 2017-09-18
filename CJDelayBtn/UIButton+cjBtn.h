@@ -36,6 +36,7 @@ typedef void(^cj_click_block)(UIButton *btn);
  */
 - (void)cj_clickControl:(cj_click_block)block;
 
+- (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay;
 /**
  *  文字相对于按钮的的位置
  */
