@@ -21,7 +21,7 @@ typedef void(^cj_click_block)(UIButton *btn);
 @interface UIControl (cjBtn)
 
 /**
- * 间隔功能 http://www.cocoachina.com/ios/20150629/12299.html 如果用assign目前会出现提前释放，崩溃的问题
+ * 间隔功能 http://www.cocoachina.com/ios/20150629/12299.html 如果用assign，NSTimeInterval会出现iOS8系统提前释放，崩溃的问题
  */
 @property(nonatomic,strong)NSNumber *cj_delayTime;
 

@@ -26,6 +26,8 @@
 
 + (nullable UIFont *)cj_fontWithName:(NSString *)fontName
                                 size:(CGFloat)fontSize {
+    
+    //UI给出字体，要避免系统版本 http://iosfonts.com/
     if ([fontName containsString:@"PingFangSC"] && iOS9Before) {
         //或者在这里替代 某种字体 ，一般UI出字体，不会太多，可在这里做区分字体转换
         return [UIFont cj_fontWithName:@"KohinoorDevanagari-Light" size:fontSize];

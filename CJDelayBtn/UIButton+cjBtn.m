@@ -9,10 +9,6 @@
 #import "UIButton+cjBtn.h"
 #import <objc/runtime.h>
 
-#define kVersion [[UIDevice currentDevice].systemVersion floatValue]
-#define iOS9Later  ( kVersion > 9.0)
-
-
 static const char *buttonCallBackBlockKey;
 static const char *topNameKey;
 static const char *rightNameKey;
