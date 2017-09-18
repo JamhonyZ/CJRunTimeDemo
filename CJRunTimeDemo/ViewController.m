@@ -51,7 +51,7 @@
     [btn1 cj_clickControl:^(UIButton *btn) {
         kSelfStrong;
         [strongSelf changeAction1:btn];
-    }];
+    } delay:1];
     btn1.frame = CGRectMake(CGRectGetMaxX(btn.frame)+50, 80, 60, 20);
     btn1.backgroundColor = [UIColor redColor];
     btn1.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -82,9 +82,7 @@
     [btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:btn2];
     
-    
-    
-    
+
     //热响应
     UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMinX(btn2.frame), CGRectGetMaxY(btn2.frame), 100, 100)];
     bgView.backgroundColor = [UIColor yellowColor];
@@ -104,9 +102,10 @@
     }];
     [btn3 setEnlargeEdge:30];
     
+    
     //PingFangSC-Light
     //小机型 小size
-    UIFont *font = [UIFont cj_fontWithName:@"HelveticaNeue-Medium" uiSize:15 cutSize:5];
+    UIFont *font = [UIFont cj_fontWithName:@"HelveticaNeue-Medium" uiSize:13 cutSize:5];
     btn3.titleLabel.font = font;
     btn3.frame = CGRectMake(30, 30, 40, 40);
     btn3.backgroundColor = [UIColor redColor];

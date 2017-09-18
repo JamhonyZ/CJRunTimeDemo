@@ -21,7 +21,7 @@ typedef void(^cj_click_block)(UIButton *btn);
 @interface UIControl (cjBtn)
 
 /**
- * 间隔功能
+ * 间隔功能 http://www.cocoachina.com/ios/20150629/12299.html 目前会出现提前释放，崩溃的问题
  */
 @property(nonatomic,assign)NSTimeInterval cj_delayTime;
 
@@ -37,6 +37,7 @@ typedef void(^cj_click_block)(UIButton *btn);
 - (void)cj_clickControl:(cj_click_block)block;
 
 - (void)cj_clickControl:(cj_click_block)block delay:(NSTimeInterval)delay;
+
 /**
  *  文字相对于按钮的的位置
  */

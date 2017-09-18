@@ -16,10 +16,9 @@
 #define iOS9Before  ( kVersion < 9.0)
 
 @implementation UIFont (cjFont)
-
-
 //替换UI字体
 + (void)load {
+    
     Method sys_method = class_getClassMethod(self, @selector(fontWithName:size:));
     Method add_method = class_getClassMethod(self, @selector(cj_fontWithName:size:));
     method_exchangeImplementations(sys_method, add_method);

@@ -12,6 +12,7 @@
 #define kVersion [[UIDevice currentDevice].systemVersion floatValue]
 #define iOS9Later  ( kVersion > 9.0)
 
+
 static const char *buttonCallBackBlockKey;
 static const char *topNameKey;
 static const char *rightNameKey;
@@ -36,8 +37,10 @@ static const char *imageRectKey;
     Method add_method = class_getInstanceMethod(self, @selector(cj_sendAction:to:forEvent:));
     method_exchangeImplementations(sys_method, add_method);
 }
+
 #pragma mark -- 延迟
-- (void)cj_sendAction:(SEL)action to:(nullable id)target forEvent:(nullable UIEvent *)event {
+- (void)cj_sendAction:(SEL)action to:(nullable id)target
+             forEvent:(nullable UIEvent *)event {
     
     if (iOS9Later) {
         if (self.cj_ignoreEvent) return;
@@ -57,7 +60,6 @@ static const char *imageRectKey;
  id value                      :被关联者
  objc_AssociationPolicy policy : 关联时采用的协议，有assign，retain，copy等协议，一般使用OBJC_ASSOCIATION_RETAIN_NONATOMIC
  */
-
 //间隔时间
 - (void)setCj_delayTime:(NSTimeInterval)cj_delayTime {
     objc_setAssociatedObject(self, @selector(cj_delayTime), @(cj_delayTime), OBJC_ASSOCIATION_ASSIGN);
@@ -69,7 +71,10 @@ static const char *imageRectKey;
 - (void)setCj_ignoreEvent:(BOOL)cj_ignoreEvent{
     objc_setAssociatedObject(self, @selector(cj_ignoreEvent), @(cj_ignoreEvent), OBJC_ASSOCIATION_ASSIGN);
 }
-
+/**
+ * 这里的 _cmd 代指当前方法的选择子，也就是 @selector(cj_ignoreEvent)。
+ * 这种方法省略了声明参数的代码，并且能很好地保证 key 的唯一性。
+ */
 - (BOOL)cj_ignoreEvent{
     return [objc_getAssociatedObject(self, _cmd) boolValue];
 }
@@ -88,9 +93,7 @@ static const char *imageRectKey;
     //图文
     MethodSwizzle(self,@selector(titleRectForContentRect:),@selector(override_titleRectForContentRect:));
     MethodSwizzle(self,@selector(imageRectForContentRect:),@selector(override_imageRectForContentRect:));
-    
 }
-
 
 #pragma mark -- Block封装
 - (void)cj_clickControl:(cj_click_block)block {
@@ -132,14 +135,14 @@ static const char *imageRectKey;
 
 - (CGRect)imageRect {
     
-    NSValue * rectValue = objc_getAssociatedObject(self, imageRectKey);
+    NSValue * rectValue = objc_getAssociatedObject(self, &imageRectKey);
     
     return [rectValue CGRectValue];
 }
 
 - (void)setImageRect:(CGRect)rect {
     
-    objc_setAssociatedObject(self, imageRectKey, [NSValue valueWithCGRect:rect], OBJC_ASSOCIATION_RETAIN);
+    objc_setAssociatedObject(self, &imageRectKey, [NSValue valueWithCGRect:rect], OBJC_ASSOCIATION_RETAIN);
 }
 
 void MethodSwizzle(Class c,SEL origSEL,SEL overrideSEL)
