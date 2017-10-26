@@ -137,7 +137,7 @@ static char *kLongPressActionBlockKey;
         [self.cj_placeholderView removeFromSuperview];
         self.cj_placeholderView = nil;
     }
-    self.cj_placeholderView = [[UIView alloc] initWithFrame:self.bounds];
+    self.cj_placeholderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
     self.cj_placeholderView.backgroundColor = [UIColor whiteColor];
     [self addSubview:self.cj_placeholderView];
     
@@ -151,7 +151,7 @@ static char *kLongPressActionBlockKey;
     [self.cj_placeholderView addSubview:imageView];
     
     
-    //------- 文字 （可由项目不同定制富文本属性 ）------//
+    //------- 文字 （可由项目不同定制富文本属性）------//
     UILabel *tipLabel = [[UILabel alloc] init];
     tipLabel.textColor = [UIColor blackColor];
     tipLabel.font = [UIFont systemFontOfSize:15];
