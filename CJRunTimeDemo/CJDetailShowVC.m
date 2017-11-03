@@ -37,6 +37,7 @@
         }
             break;
         case 3: {
+            self.title = @"我的高度由你定制";
             [self.view cj_showPlaceholderViewWithImageName:@"cj_wd_null_icon" tipTitle:@"玉树临风" imageTop:150 imageTipMargin:10 reloadBlock:nil];
         }
             break;

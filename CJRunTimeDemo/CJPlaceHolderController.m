@@ -28,6 +28,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    self.navigationItem.title = @"展位图功能";
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    
     _tbView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     _tbView.delegate = self;
     _tbView.dataSource = self;
@@ -36,7 +40,6 @@
     [self.view addSubview:_tbView];
     
     kSelfWeak;
-    
     [_tbView cj_showPlaceholderViewWithType:CJPlaceholderViewTypeLoadFaild reloadBlock:^{
         kSelfStrong;
         [strongSelf.tbView reloadData];

@@ -12,7 +12,6 @@
 #import "CJPlaceHolderController.h"
 #import "CJLineSpaceLabelController.h"
 
-
 #define kSelfWeak __weak typeof(self) weakSelf = self
 #define kSelfStrong __strong __typeof__(weakSelf) strongSelf = weakSelf
 
@@ -28,11 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"其实你可以star一下";
+    
     //间隔
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn addTarget:self action:@selector(changeAction:) forControlEvents:UIControlEventTouchUpInside];
-    [btn setTitle:@"行间距文本" forState:UIControlStateNormal];
-  
+    [btn setTitle:@"跳转行间距文本" forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     btn.cj_delayTime = @(0.9);
@@ -41,8 +41,8 @@
         kSelfStrong;
         [strongSelf changeAction:btn];
     }];
-    btn.frame = CGRectMake(10, 80, 160, 20);
-    btn.backgroundColor = [UIColor redColor];
+    btn.frame = CGRectMake((CGRectGetWidth(self.view.bounds)-160)/2, 80, 160, 40);
+    btn.backgroundColor = [UIColor grayColor];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:btn];
     
@@ -55,8 +55,8 @@
         kSelfStrong;
         [strongSelf changeAction1:btn];
     } delay:0.2];
-    btn1.frame = CGRectMake(CGRectGetMaxX(btn.frame)+50, 80, 60, 20);
-    btn1.backgroundColor = [UIColor redColor];
+    btn1.frame = CGRectMake(CGRectGetMinX(btn.frame), 140, 160, 40);
+    btn1.backgroundColor = [UIColor grayColor];
     btn1.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:btn1];

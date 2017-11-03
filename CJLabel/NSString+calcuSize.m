@@ -10,7 +10,6 @@
 
 @implementation NSString (calcuSize)
 
-
 /**
  * 计算文字高度，可以处理计算带行间距的
  */

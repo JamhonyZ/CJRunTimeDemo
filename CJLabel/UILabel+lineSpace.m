@@ -13,7 +13,6 @@
 static const char *lineSpaceKey;
 static const char *alignmentKey;
 static const char *maxLinesKey;
-//static const char *lineSpaceKey;
 
 @implementation UILabel (lineSpace)
 

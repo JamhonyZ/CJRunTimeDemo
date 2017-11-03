@@ -21,6 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationItem.title = @"行间距定制文本";
+    
     self.scrView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     self.scrView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.scrView];
