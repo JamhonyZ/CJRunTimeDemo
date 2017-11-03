@@ -29,7 +29,7 @@
     [super viewDidLoad];
     
     
-    self.navigationItem.title = @"展位图功能";
+    self.navigationItem.title = @"占位图功能";
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     _tbView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
