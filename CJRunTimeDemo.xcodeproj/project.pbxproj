@@ -28,6 +28,10 @@
 		CDA977A41F8B6A60006182EF /* cj_wd_null_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9779E1F8B6A60006182EF /* cj_wd_null_icon@3x.png */; };
 		CDA977A51F8B6A60006182EF /* cj_data_faild@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA9779F1F8B6A60006182EF /* cj_data_faild@2x.png */; };
 		CDA977A81F8B6FCC006182EF /* CJPlaceHolderController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA977A71F8B6FCC006182EF /* CJPlaceHolderController.m */; };
+		CDEDDE4B1FAC009F006C2384 /* CJLineSpaceLabelController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDDE4A1FAC009F006C2384 /* CJLineSpaceLabelController.m */; };
+		CDF1A9521FAB0659006270FA /* CJLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1A9511FAB0659006270FA /* CJLabel.m */; };
+		CDF1A9551FAB06C8006270FA /* UILabel+lineSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1A9541FAB06C8006270FA /* UILabel+lineSpace.m */; };
+		CDF1A9581FAB0720006270FA /* NSString+calcuSize.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1A9571FAB0720006270FA /* NSString+calcuSize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +86,14 @@
 		CDA9779F1F8B6A60006182EF /* cj_data_faild@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cj_data_faild@2x.png"; sourceTree = "<group>"; };
 		CDA977A61F8B6FCC006182EF /* CJPlaceHolderController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJPlaceHolderController.h; sourceTree = "<group>"; };
 		CDA977A71F8B6FCC006182EF /* CJPlaceHolderController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJPlaceHolderController.m; sourceTree = "<group>"; };
+		CDEDDE491FAC009F006C2384 /* CJLineSpaceLabelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJLineSpaceLabelController.h; sourceTree = "<group>"; };
+		CDEDDE4A1FAC009F006C2384 /* CJLineSpaceLabelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJLineSpaceLabelController.m; sourceTree = "<group>"; };
+		CDF1A9501FAB0659006270FA /* CJLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CJLabel.h; sourceTree = "<group>"; };
+		CDF1A9511FAB0659006270FA /* CJLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CJLabel.m; sourceTree = "<group>"; };
+		CDF1A9531FAB06C8006270FA /* UILabel+lineSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+lineSpace.h"; sourceTree = "<group>"; };
+		CDF1A9541FAB06C8006270FA /* UILabel+lineSpace.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+lineSpace.m"; sourceTree = "<group>"; };
+		CDF1A9561FAB0720006270FA /* NSString+calcuSize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+calcuSize.h"; sourceTree = "<group>"; };
+		CDF1A9571FAB0720006270FA /* NSString+calcuSize.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+calcuSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +144,7 @@
 		CD21284B1F4D6CEC00CC2BBC /* CJRunTimeDemo */ = {
 			isa = PBXGroup;
 			children = (
+				CDF1A94F1FAB062A006270FA /* CJLabel */,
 				CD25B6521F8C6D0F002F1C1E /* CJPlaceHolderView */,
 				CD21287F1F4D6D0700CC2BBC /* CJDelayBtn */,
 				CD21284F1F4D6CEC00CC2BBC /* AppDelegate.h */,
@@ -142,6 +155,8 @@
 				CDA977A71F8B6FCC006182EF /* CJPlaceHolderController.m */,
 				CD25B64F1F8C65E9002F1C1E /* CJDetailShowVC.h */,
 				CD25B6501F8C65E9002F1C1E /* CJDetailShowVC.m */,
+				CDEDDE491FAC009F006C2384 /* CJLineSpaceLabelController.h */,
+				CDEDDE4A1FAC009F006C2384 /* CJLineSpaceLabelController.m */,
 				CD6ADC4C1F5548380028C1F5 /* xj_alert_succeed@2x.png */,
 				CD6ADC4D1F5548380028C1F5 /* xj_alert_succeed@3x.png */,
 				CDA9779F1F8B6A60006182EF /* cj_data_faild@2x.png */,
@@ -204,6 +219,19 @@
 			);
 			path = CJPlaceHolderView;
 			sourceTree = SOURCE_ROOT;
+		};
+		CDF1A94F1FAB062A006270FA /* CJLabel */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1A9501FAB0659006270FA /* CJLabel.h */,
+				CDF1A9511FAB0659006270FA /* CJLabel.m */,
+				CDF1A9531FAB06C8006270FA /* UILabel+lineSpace.h */,
+				CDF1A9541FAB06C8006270FA /* UILabel+lineSpace.m */,
+				CDF1A9561FAB0720006270FA /* NSString+calcuSize.h */,
+				CDF1A9571FAB0720006270FA /* NSString+calcuSize.m */,
+			);
+			path = CJLabel;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -348,13 +376,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD6ADC481F5541C40028C1F5 /* UIButton+cjBtn.m in Sources */,
+				CDF1A9581FAB0720006270FA /* NSString+calcuSize.m in Sources */,
 				CD6FF88D1F6B6E2900B513EC /* UIFont+cjFont.m in Sources */,
 				CD2128541F4D6CEC00CC2BBC /* ViewController.m in Sources */,
+				CDEDDE4B1FAC009F006C2384 /* CJLineSpaceLabelController.m in Sources */,
 				CDA977A81F8B6FCC006182EF /* CJPlaceHolderController.m in Sources */,
 				CD25B6511F8C65E9002F1C1E /* CJDetailShowVC.m in Sources */,
+				CDF1A9521FAB0659006270FA /* CJLabel.m in Sources */,
 				CD25B6551F8C6D0F002F1C1E /* UIView+cjPlaceHolder.m in Sources */,
 				CD2128511F4D6CEC00CC2BBC /* AppDelegate.m in Sources */,
 				CD21284E1F4D6CEC00CC2BBC /* main.m in Sources */,
+				CDF1A9551FAB06C8006270FA /* UILabel+lineSpace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

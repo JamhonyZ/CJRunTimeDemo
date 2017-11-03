@@ -10,6 +10,9 @@
 #import "UIButton+cjBtn.h"
 #import "UIFont+cjFont.h"
 #import "CJPlaceHolderController.h"
+#import "CJLineSpaceLabelController.h"
+
+
 #define kSelfWeak __weak typeof(self) weakSelf = self
 #define kSelfStrong __strong __typeof__(weakSelf) strongSelf = weakSelf
 
@@ -28,7 +31,7 @@
     //间隔
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn addTarget:self action:@selector(changeAction:) forControlEvents:UIControlEventTouchUpInside];
-    [btn setTitle:@"间隔" forState:UIControlStateNormal];
+    [btn setTitle:@"行间距文本" forState:UIControlStateNormal];
   
     btn.titleLabel.font = [UIFont systemFontOfSize:12];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -38,7 +41,7 @@
         kSelfStrong;
         [strongSelf changeAction:btn];
     }];
-    btn.frame = CGRectMake(10, 80, 60, 20);
+    btn.frame = CGRectMake(10, 80, 160, 20);
     btn.backgroundColor = [UIColor redColor];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:btn];
@@ -117,11 +120,14 @@
 
 
 - (void)changeAction:(UIButton *)btn {
-    _clickCount0 ++;
-    [btn setTitle:[NSString stringWithFormat:@"%@",@(_clickCount0)] forState:UIControlStateNormal];
+    [self.navigationController pushViewController:[CJLineSpaceLabelController new] animated:YES];
+    
+//    _clickCount0 ++;
+//    [btn setTitle:[NSString stringWithFormat:@"%@",@(_clickCount0)] forState:UIControlStateNormal];
 }
 - (void)changeAction1:(UIButton *)btn {
     [self.navigationController pushViewController:[CJPlaceHolderController new] animated:YES];
+    
 //    _clickCount1 ++;
 //    [btn setTitle:[NSString stringWithFormat:@"%@",@(_clickCount1)] forState:UIControlStateNormal];
 }
