@@ -45,13 +45,21 @@ static CGFloat const kDefultLineSpace = 1.0f;
         
         _cj_text = cjText;
         
-        _cj_lineSpace = lineSpace;
-        
         _cj_maxLines = NSIntegerMax;
+        
+        _cj_alignment = NSTextAlignmentLeft;
         
         self.numberOfLines = 0;
         
-        self.attributedText = [[self class] getAttLineSpace:lineSpace content:cjText font:font maxSize:CGSizeMake(frame.size.width, CGFLOAT_MAX)];
+        NSMutableAttributedString *attributeString = [self getMutableStr:cjText];
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        if ([attributeString.string cj_isMoreThanOneLineWithSize:CGSizeMake(frame.size.width, CGFLOAT_MAX) font:font lineSpaceing:lineSpace]) {
+            style.lineSpacing = lineSpace;
+            _cj_lineSpace = lineSpace;
+        }
+        [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,cjText.length)];
+        self.attributedText = attributeString;
+        
         
         [self changeNewFrame];
     }
@@ -67,9 +75,7 @@ static CGFloat const kDefultLineSpace = 1.0f;
     if (!cjText) return;
     
     _cj_text = cjText;
-    
-    _cj_lineSpace = lineSpace;
-    
+
     _cj_alignment = textAlignment;
     
     _cj_maxLines = NSIntegerMax;
@@ -85,10 +91,10 @@ static CGFloat const kDefultLineSpace = 1.0f;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     if ([attributeString.string cj_isMoreThanOneLineWithSize:maxSize font:font lineSpaceing:lineSpace]) {
         style.lineSpacing = lineSpace;
+        _cj_lineSpace = lineSpace;
     }
     style.alignment = textAlignment ? textAlignment : NSTextAlignmentLeft;
     [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,cjText.length)];
-    
     self.attributedText = attributeString;
     
     [self changeNewFrame];
@@ -105,8 +111,6 @@ static CGFloat const kDefultLineSpace = 1.0f;
     
     _cj_text = cjText;
     
-    _cj_lineSpace = lineSpace;
-    
     _cj_maxLines = maxLines;
     
     self.font = font;
@@ -118,6 +122,7 @@ static CGFloat const kDefultLineSpace = 1.0f;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     if ([attributeString.string cj_isMoreThanOneLineWithSize:maxSize font:font lineSpaceing:lineSpace]) {
         style.lineSpacing = lineSpace;
+        _cj_lineSpace = lineSpace;
     }
     [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,cjText.length)];
     style.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -139,8 +144,6 @@ static CGFloat const kDefultLineSpace = 1.0f;
     
     _cj_text = cjText;
     
-    _cj_lineSpace = lineSpace;
-    
     _cj_maxLines = NSIntegerMax;
     
     _cj_alignment = textAlignment;
@@ -154,6 +157,7 @@ static CGFloat const kDefultLineSpace = 1.0f;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     if ([attributeString.string cj_isMoreThanOneLineWithSize:maxSize font:font lineSpaceing:lineSpace]) {
         style.lineSpacing = lineSpace;
+        _cj_lineSpace = lineSpace;
     }
     [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,cjText.length)];
     style.lineBreakMode = NSLineBreakByTruncatingTail;
@@ -195,8 +199,6 @@ static CGFloat const kDefultLineSpace = 1.0f;
     
     _cj_maxLines = maxLines;
     
-    _cj_lineSpace = lineSpace;
-    
     self.font = font;
     
     self.numberOfLines = 0;
@@ -206,6 +208,7 @@ static CGFloat const kDefultLineSpace = 1.0f;
     NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
     if ([attributeString.string cj_isMoreThanOneLineWithSize:maxSize font:font lineSpaceing:lineSpace]) {
         style.lineSpacing = lineSpace;
+        _cj_lineSpace = lineSpace;
     }
     [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0,cjText.length)];
     style.lineBreakMode = NSLineBreakByTruncatingTail;

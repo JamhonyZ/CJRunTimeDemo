@@ -54,9 +54,10 @@
     
     
     /**第三种 通过config配置**/
-    NSString *showText2 = @"我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。我只有两行。";
+    NSString *showText2 = @"我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行,我只有两行";
     CJLabel *label2 = [[CJLabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(label1.frame)+30, 200, 0)];
     label2.textColor = [UIColor blueColor];
+    label2.backgroundColor = [UIColor greenColor];
     [label2 configCJText:showText2 lineSpace:10 font:[UIFont systemFontOfSize:11] maxLines:2];
     [self.scrView addSubview:label2];
     
