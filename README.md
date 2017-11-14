@@ -30,7 +30,19 @@
 部分原文链接：
 
 http://blog.csdn.net/uxyheaven/article/details/48009197
+
 https://github.com/casscqt/lineSpaceTextHeightDemo
 
 
 /**代码整合了一下便于自己备份记录学习**\
+
+
+//以下链接，均为github上 仿照市面上成熟应用的小模块功能。
+
+https://github.com/Eastwu5788/XMLYFM   高仿喜马拉雅FM
+
+https://github.com/gsdios/GSD_WeiXin   高仿微信
+
+https://github.com/NoCodeNoWife/LLRiseTabBar-iOS  仿淘宝闲鱼的 TabBar
+
+https://github.com/tubie/JFMeiTuan  高仿美团
